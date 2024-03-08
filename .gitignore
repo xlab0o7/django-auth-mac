@@ -1,0 +1,9 @@
+venv
+__pycache__
+
+db.sqlite3
+
+.vscode
+__init__.py
+
+penv

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Signup Page{% endblock title %}
+
+{% block main_content %}
+<br>
+   <center><h2>SIGNUP PAGE</h2></center>
+{% for message in messages  %}
+<div class='alert alert-{{ message.tags}} alert-dismissible fade show' role="alert" >
+    <strong>Messages:</strong> {{message}}
+</div>
+{% endfor %}
+<div class="container px-12 py-3 px-md-6 text-center text-lg-start align-itmes-center">
+
+    <form action="/signup/" method="post">
+    {% csrf_token %}
+        <div class='form-outline mb-4 align-center mx-auto'>
+            <label class="form-label">Username:</label>
+            <input class="form-control" name="username-signup" type="text"> <br>
+            
+            <label class="form-label">Email:</label>
+            <input class="form-control" name="email-signup"  type="email"/><br>
+            
+            <label class="form-label">Password:</label>
+            <input class="form-control" name="password-signup" type="password" /><br>
+            
+            <button class="btn btn-primary" type="submit">SUBMIT</button><br><br><br>
+            <center><a href="/login/">Already have an account? Login</a></center>
+        </div>
+    </form>
+</div>
+
+{% endblock main_content %}
