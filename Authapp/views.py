@@ -1,6 +1,4 @@
-from functools import reduce
 from django.shortcuts import redirect, render
-# from django.views import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -52,5 +50,9 @@ def login1(request):
 
 def signout(request):
         logout(request)
-        # return redirect('home')
-        return render(request, 'home.html')
+        return redirect('home')
+
+def ChatBox(request, *args, **kwargs):
+    context = {}
+    return render(request, 'chat.html', context)
+

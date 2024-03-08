@@ -10,12 +10,14 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"/>
 
-      {% comment %} <link rel="stylesheet" href="{% static "css/base.css" %}"> {% endcomment %}
+      <link rel="stylesheet" href="{% static "css/base.css" %}">
       <title>{% block title %}Base Page{% endblock title %} | Auth App</title>
   </head>
 <body>
     {% block main_content %}{% endblock main_content %}
+    <script>
     {% block script %}{% endblock script %}
-    
+    </script>
 </body>
 </html>
+

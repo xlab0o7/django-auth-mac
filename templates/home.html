@@ -5,11 +5,18 @@
 {% if user.is_authenticated %}
 <br>
 <div class="container">
-    <center><a href='logout'>Logout</a></center>
+    <center> <button class="btn btn-warning"><a href='logout'>Logout</a> </button></center>
     <h2><br>
         <br><br>
         <center>Welcome {{user.get_username}}, Thanks for logging in into our website.</center>
     </h2>
+    <div class="container">
+        <center>
+            <h2> 
+                <button class='btn btn-warning'> <a href="{% url 'chatbox' %}">Chat Room</a> </button>
+            </h2>
+        </center>
+    </div>
     {% else %}
     <br>
     <div class="container">

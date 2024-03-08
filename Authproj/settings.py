@@ -24,9 +24,19 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
+    'channels',
     'Authapp',
 ]
+ASGI_APPLICATION = 'Authproj.asgi.application'
+
+CHANNEL_LAYERS = {
+	"default": {
+		"BACKEND": "channels.layers.InMemoryChannelLayer"
+	}
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,9 +73,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Authproj.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -95,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ASGI_APPLICATION = 'Authproj.asgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
