@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
+from .models import Message
 from django.contrib.auth import logout, authenticate, login
 
 from Authproj import settings
@@ -53,6 +54,8 @@ def signout(request):
         return redirect('home')
 
 def ChatBox(request, *args, **kwargs):
-    context = {}
-    return render(request, 'chat.html', context)
+
+    messages = Message.objects.all().order_by('-timestamp')[:10]
+#     context = {'messages': messages}
+    return render(request, 'chat.html', {"messages":messages})
 
