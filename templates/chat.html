@@ -16,35 +16,53 @@
             <i>Current User: </i> <h3 style="color: orange"> {{ user.username }}</h3>
             <div class="card">
               <h2>Group <span style="color: orange">Chat</span></h2>
-              <div class=" input-btn col-8 ">
-                <input class="form-control" name="message" type="text" id="id_message_send_input" /><button class="btn btn-warning" type="submit" id="id_message_send_button"> > </button>   
-            </div> 
-            <div class="id_chat_item_container" id="id_chat_item_container">
-                <ul>
+              <ul>
                 {% for message in messages %}
-                <p><span style="color: orange;">{{message.Account_owner}} : </span> {{ message.content }} <span style="color: green; font-size: 10px; text-align: right;"> {{message.timestamp}} </span> </p>
-                {% endfor %}
+                <p>
+                  <span style="color: orange; ">{{message.Account_owner}}: </span> 
+                  {{ message.content }} 
+                  <span style="color: green; font-size: 10px; text-align: right;"> {{message.timestamp}} </span> </p>
+                  {% endfor %}
                 </ul>
+                <div class="id_chat_item_container " id="id_chat_item_container">
+                  <div class=" input-btn col-8 ">
+                    <input class="form-control" name="message" type="text" id="id_message_send_input" />
+                    <button class="btn btn-warning" type="submit" id="id_message_send_button">send</button>   
+                  </div>
+                </div>
             </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 <style>
       .card{
       background: transparent;
-      border-radius: 25px;
+      border-radius: 28px;
       height: 700px;
       overflow-y: scroll;
-      overflow-x: hidden;
+      
       padding: 10px;
       text-align: center;
       margin-top: 50px;
       margin-bottom: 50px;
       background-color: rgba(255, 255, 255, 0.5);
   }
+  .id_chat_item_container{
+    position: absolute;
+    overflow-y: scroll;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+  }
   .input-btn{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    max-width: 100%;
   }
 </style>
       <script>
@@ -71,10 +89,10 @@
               var div = document.createElement("div");
               div.innerHTML = data.username + " : " + data.message;
               document.querySelector("#id_message_send_input").value = "";
-              parentdiv = document.querySelector("#id_chat_item_container");
-              childdiv = document.createElement('div');
-              const existingElement = parentdiv.firstChild;
-              parentdiv.insertBefore(div, existingElement);
+              const parentContainer = document.querySelector("#id_chat_item_container");
+              const existingElement = parentContainer.firstChild;
+              parentContainer.insertBefore(div, existingElement);
+
             };
             
           </script>
