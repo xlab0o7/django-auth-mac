@@ -17,7 +17,7 @@
             <div class="card">
               <h2>Group <span style="color: orange">Chat</span></h2>
               <ul>
-                {% for message in messages %}
+                {% for message in message %}
                 <p>
                   <span style="color: orange; ">{{message.Account_owner}}: </span> 
                   {{ message.content }} 
@@ -32,9 +32,9 @@
                 </div>
             </div>
           </div>
-        </div>
+
       </div>
-    </div>
+
   </div>
 <style>
       .card{

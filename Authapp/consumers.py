@@ -40,6 +40,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
         username = event["username"]
         await self.send(text_data = json.dumps({"message":message ,"username":username}))
 
-@database_sync_to_async
-def save_message(self, message):
-    Message.objects.create(Account_owner = self.scope['user'] , content = message)
+    @database_sync_to_async
+    def save_message(self, message):
+        Message.objects.create(Account_owner = self.scope['user'] , content = message)

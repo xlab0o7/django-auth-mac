@@ -55,5 +55,5 @@ def signout(request):
 
 def ChatBox(request, *args, **kwargs):
     messages = Message.objects.all().order_by('timestamp')[:10]
-    return render(request, 'chat.html', {"messages":messages})
+    return render(request, 'chat.html', {"message":messages})
 
