@@ -26,13 +26,11 @@
                           {% endfor %}
                       </ul>
                   </div>
-                  <div class='new_message'>
+                  {% comment %} <div class='new_message'>
                     <ul>
-                      <li>
-
-                      </li>
+                      <li></li>
                     </ul>
-                  </div>
+                  </div> {% endcomment %}
                   <div class="send_receive_chat">
                       <div class="id_chat_item_container" id="id_chat_item_container"></div>
                       <form>
@@ -42,91 +40,7 @@
                   </div>
               </div>
           </div>
-          
-<style>
-  .card {
-    background: transparent;
-    border-radius: 28px;
-    height: 700px;
-    overflow-y: scroll;
-    padding: 10px;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
 
-  .send_receive_chat {
-    position: relative;
-}
-  
-  .span_userName {
-    margin: 0;
-    margin-left: 10px;
-    color: orange; 
-    
-  }
-
-  .span_timestamp {
-    color: green;
-    text-align: right;
-    font-size: 10px;
-  }
-  
-  .history_chat {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 28px;
-    height: 400px; 
-    overflow-y: scroll;
-    margin-bottom: 20px;
-  }
-  
-  .sendInput {
-    margin-bottom: 10px;
-  }
-
-  .history_chat ul {
-    list-style-type: none;
-}
-
-.history_chat li {
-  margin-bottom: 10px;
-  padding: 8px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-}
-
-  form {
-    display: flex;
-    align-items: center;
-    margin-botton: 5%;
-  }
-
-  .new_message {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-.new_message ul {
-  list-style-type: none;
-}
-
-.new_message li {
-  margin-bottom: 10px;
-  padding: 8px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-}
-
-  .id_chat_item_container {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-  }
-</style>
       <script>
           const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
           const chatSocket = new WebSocket(protocol + window.location.host + "/ws/chat/");
