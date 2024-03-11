@@ -54,6 +54,6 @@ def signout(request):
         return redirect('home')
 
 def ChatBox(request, *args, **kwargs):
-    messages = Message.objects.all().order_by('timestamp')[:10]
+    messages = Message.objects.all().order_by('timestamp')
     return render(request, 'chat.html', {"message":messages})
 

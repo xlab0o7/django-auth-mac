@@ -34,7 +34,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     "message": message,
                     "username": username,
             })
-
+        await self.save_message(message)
+        
     async def sendMessage(self , event) : 
         message = event["message"]
         username = event["username"]
