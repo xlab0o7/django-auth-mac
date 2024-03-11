@@ -11,30 +11,38 @@
 
 
              <div class="container">
-                <div class="col">
+              <div class="col">
                   <i>Current User: </i>
-                  <h3 style="color: orange"> {{ user.username }}</h3>
-                  <h2>Group <span style="color: orange">Chat</span></h2>
-                  <div class="card">
-                    <div class='histroy_chat'>
+                  <h3 style="color: orange">{{ user.username }}</h3>
+                  <center><h2>Group <span style="color: orange">Chat</span></h2></center>
+                  <div class="history_chat">
                       <ul>
-                        {% for message in message %}
-                        <p>
-                          <span class='span_userName'>{{message.Account_owner}}: </span>
-                          {{ message.content }}
-                          <span class='span_timestamp'> {{message.timestamp}} </span>
-                        </p>
-                        {% endfor %}
+                          {% for message in message %}
+                          <li>
+                              <span class='span_userName'>{{message.Account_owner}}: </span>
+                              {{ message.content }}
+                              <span class='span_timestamp'> {{message.timestamp}} </span>
+                          </li>
+                          {% endfor %}
                       </ul>
-                    </div>
-                    <div class="id_chat_item_container " id="id_chat_item_container"></div>
                   </div>
-                  <form>
-                    <input class="form-control sendInput" name="message" type="text" id="id_message_send_input" />
-                    <button class="btn btn-warning sendInput" type="submit" id="id_message_send_button">send</button>
-                  </form>
-                </div>
-            </div>
+                  <div class='new_message'>
+                    <ul>
+                      <li>
+
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="send_receive_chat">
+                      <div class="id_chat_item_container" id="id_chat_item_container"></div>
+                      <form>
+                          <input class="form-control sendInput" name="message" type="text" id="id_message_send_input" />
+                          <button class="btn btn-warning sendInput" type="submit" id="id_message_send_button">send</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          
 <style>
   .card {
     background: transparent;
@@ -47,10 +55,14 @@
     margin-bottom: 50px;
     background-color: rgba(255, 255, 255, 0.5);
   }
+
+  .send_receive_chat {
+    position: relative;
+}
   
   .span_userName {
     margin: 0;
-    margin-left: 10;
+    margin-left: 10px;
     color: orange; 
     
   }
@@ -61,26 +73,58 @@
     font-size: 10px;
   }
   
-  .id_chat_item_container {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-  }
-  
   .history_chat {
-    position: absolute;
-    max-height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 28px;
+    height: 400px; 
+    overflow-y: scroll;
+    margin-bottom: 20px;
   }
   
   .sendInput {
-    margin-bottom: 15%;
+    margin-bottom: 10px;
   }
+
+  .history_chat ul {
+    list-style-type: none;
+}
+
+.history_chat li {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
 
   form {
     display: flex;
     align-items: center;
     margin-botton: 5%;
+  }
+
+  .new_message {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.new_message ul {
+  list-style-type: none;
+}
+
+.new_message li {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+  .id_chat_item_container {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
   }
 </style>
       <script>
@@ -106,6 +150,7 @@
               const data = JSON.parse(e.data);
               var div = document.createElement("div");
               div.innerHTML = data.username + " : " + data.message;
+              div.classList.add("new_message");
               document.querySelector("#id_message_send_input").value = "";
               const parentContainer = document.querySelector("#id_chat_item_container");
               const existingElement = parentContainer.firstChild;

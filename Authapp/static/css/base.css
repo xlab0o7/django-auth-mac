@@ -1,12 +1,12 @@
 body{
-    max-height: 1000px;
+    /* max-height: 1000px; */
     background-color: rgba(255, 166, 0, 0.715);
     background-image: url("../img/0BkTEW.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /* overflow: hidden; */
 }
-@media screen and (max-height: 650px) {
+/* @media screen and (max-height: 650px) {
     body{
         max-height: 700px;
     }
@@ -15,4 +15,4 @@ body{
         height: 580px;
     }
     
-}
+} */
