@@ -1,4 +1,5 @@
 from pathlib import Path
+from wsgiref.types import WSGIApplication
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'channels',
     'Authapp',
 ]
+WSGI_Application = 'Authproj.wsgi.application'
 ASGI_APPLICATION = 'Authproj.asgi.application'
 
 CHANNEL_LAYERS = {

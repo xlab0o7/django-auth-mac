@@ -13,32 +13,25 @@
              <div class="container">
               <div class="col">
                   <i>Current User: </i>
-                  <h3 style="color: orange">{{ user.username }}</h3>
-                  <center><h2>Group <span style="color: orange">Chat</span></h2></center>
+                  <h3>{{ user.username }}</h3>
+                  <center><h2>Group <span style="color: orange;">Chat</span></h2></center>
                   <div class="history_chat">
                       <ul>
                           {% for message in message %}
+                          <span class='span_userName'>{{message.Account_owner}}: </span>
                           <li>
-                              <span class='span_userName'>{{message.Account_owner}}: </span>
-                              {{ message.content }}
+                              {{ message.content }}                           
                               <span class='span_timestamp'> {{message.timestamp}} </span>
                           </li>
                           {% endfor %}
                       </ul>
                   </div>
-                  {% comment %} <div class='new_message'>
-                    <ul>
-                      <li></li>
-                    </ul>
-                  </div> {% endcomment %}
-                  <div class="send_receive_chat">
-                      <div class="id_chat_item_container" id="id_chat_item_container"></div>
+                    <div class="id_chat_item_container" id="id_chat_item_container"></div><br/>
                       <form>
                           <input class="form-control sendInput" name="message" type="text" id="id_message_send_input" />
-                          <button class="btn btn-warning sendInput" type="submit" id="id_message_send_button">send</button>
+                          <button class="btn btn-info sendInput" type="button" id="id_message_send_button">send</button>
                       </form>
-                  </div>
-              </div>
+                  </div>             
           </div>
 
       <script>
@@ -55,7 +48,7 @@
             if (e.keyCode == 13) {
               document.querySelector("#id_message_send_button").click();
             }
-          };
+          };/**/
           document.querySelector("#id_message_send_button").onclick = function (e) {
             var messageInput = document.querySelector("#id_message_send_input").value;
               chatSocket.send(JSON.stringify({ message: messageInput, username : "{{request.user.username}}"}));
@@ -64,7 +57,6 @@
               const data = JSON.parse(e.data);
               var div = document.createElement("div");
               div.innerHTML = data.username + " : " + data.message;
-              div.classList.add("new_message");
               document.querySelector("#id_message_send_input").value = "";
               const parentContainer = document.querySelector("#id_chat_item_container");
               const existingElement = parentContainer.firstChild;

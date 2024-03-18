@@ -6,6 +6,8 @@ from .models import Message
 from django.contrib.auth import logout, authenticate, login
 
 from Authproj import settings
+from django.http import JsonResponse
+import time
 
 # Create your views here.
 
@@ -56,4 +58,3 @@ def signout(request):
 def ChatBox(request, *args, **kwargs):
     messages = Message.objects.all().order_by('-timestamp')
     return render(request, 'chat.html', {"message":messages})
-

@@ -6,16 +6,13 @@ body{
     background-size: cover;
     /* overflow: hidden; */
 }
-/* @media screen and (max-height: 650px) {
-    body{
-        max-height: 700px;
-    }
-    .card{
-        transform: scale(0.6);
-        height: 580px;
-    }
-    
-} */
+
+:root{
+    --main-color: rgba(255, 166, 0, 0.911);
+    --bg-color: rgba(255, 255, 255, 0.5);
+    --btn-color: rgb(2, 0, 8) ;
+
+}
 
 .card {
     background: transparent;
@@ -26,77 +23,64 @@ body{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
+    background-color: var(--bg-color);
+}
 
-.send_receive_chat {
-     position: relative;
-  }
-  
+.col > h3 {
+    color: rgba(255, 166, 0, 0.652);
+}
+
 .span_userName {
     margin: 0;
     margin-left: 10px;
-    color: orange; 
+    color: var(--main-color);
     
-  }
+}
 
 .span_timestamp {
     color: green;
     text-align: right;
     font-size: 10px;
-  }
-  
+}
+
 .sendInput {
-    margin-bottom: 10px;
-  }
-  
+    margin-bottom: 30px;
+    gap: 1rem;
+    color: var(--btn-color);
+}
+
 .history_chat {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 28px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
     height: 600px; 
     overflow-y: scroll;
     margin-bottom: 20px;
-  }
+}
 
 .history_chat ul {
     list-style-type: none;
+    padding: 2rem;
 }
 
 .history_chat li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 5px;
     background-color: #f0f0f0;
-    border-radius: 10px;
+    border-radius: 4px;
+    width: auto;
 }
 
 form {
     display: flex;
     align-items: center;
     margin-bottom: 5%;
-  }
-
-.new_message {
-    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    padding: 8px;
-    margin-bottom: 10px;
-    height: 200px
 }
 
-.new_message ul {
-  list-style-type: none;
-}
-
-.new_message li {
-  margin-bottom: 10px;
-  padding: 8px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+.btn {
+    color: chocolate;
 }
 
 .id_chat_item_container {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-  }
+    position: relative;
+}
