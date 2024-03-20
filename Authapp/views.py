@@ -34,7 +34,8 @@ def signup(request):
             to = [newuser.email]
             send_mail(subject, message, from_email, to)
             return redirect('home')
-        return render(request, 'signup.html')
+        else:
+                return render(request, 'signup.html')
 
 def login1(request):
        if request.method=='POST':
